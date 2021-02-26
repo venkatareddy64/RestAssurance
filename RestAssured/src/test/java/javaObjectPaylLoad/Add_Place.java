@@ -34,7 +34,7 @@ public class Add_Place {
 		RestAssured.baseURI="https://rahulshettyacademy.com";
 		Response response=given().log().all().queryParam("key", "qaclick123")
 		.body(obj).when().post("maps/api/place/add/json")
-		.then().assertThat().statusCode(200).extract().response();
+		.then().log().all().assertThat().statusCode(200).extract().response();
 
 		String res=response.asString();
 		System.out.println(res);
